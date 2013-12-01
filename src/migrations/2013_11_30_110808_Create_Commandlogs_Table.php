@@ -15,6 +15,9 @@ class CreateCommandlogsTable extends Migration {
 		Schema::create('commandlogs', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('command');
+			$table->string('result');
+			$table->string('session');
 			$table->timestamps();
 		});
 	}

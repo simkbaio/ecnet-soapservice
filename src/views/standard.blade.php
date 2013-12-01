@@ -1,6 +1,16 @@
 @extends('admin::layouts.scaffold')
 @section('footer')
-    <script src="{{URL::to('packages\ecnet\admin\assets\js\jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::to('packages/ecnet/admin/assets/js/jquery.form.js')}}" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $("#command_form").ajaxForm({
+                success:function(data){
+                    $("#commandbroad").html(data);
+                }   
+            });
+        });
+
+    </script>
 @stop
 @section('main')
 <div class="row-fluid">
@@ -43,19 +53,13 @@
             <div class="portlet-body">
                 <div class="row-fluid">
                     <div id="commandbroad" class='m-wrap span12' style="height:300px;border:1px solid;color:#fff;background:#000;font-family: 'Lucida Console';padding:10px;">
-                    .server info<br/>
-                    .tele byname dfsdf sdf s
                     </div>
                 </div>
-                {{Form::open(array('url'=>URL::to('admin/command/ajax_standard'),'id'=>'command_form'))}}
-                <div class="row-fluid">
-                    <div class="span12">
-                        <div class="control-group">
-                            <div class="control-label"><b>Run command</b> </div>
-                            <div class="controls">
-                                {{Form::text('command','',array('class'=>'m-wrap span12','style'=>'border:1px solid;'))}}
-                            </div>
-                        </div>
+                {{Form::open(array('url'=>URL::to('admin/command/ajax_command'),'id'=>'command_form'))}}
+                {{Form::hidden('session',Str::random(10,'alpha'))}}
+                <div class="row-fluid" style="margin-top:-5px;background:#000;border:none;">
+                    <div class="span12" style="left">
+                                {{Form::text('command','',array('class'=>'span12','style'=>'color:#fff;border:none;background:#000;font-weight:bold;','placeholder'=>'Enter Command'))}}
                     </div>
                     
                 </div>
