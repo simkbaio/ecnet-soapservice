@@ -40,7 +40,7 @@
 @endif
 <div class="row-fluid">
     <div class="span12">
-        <div class="portlet box grey">
+        <div class="portlet box green">
             <div class="portlet-title">
                 <h4>
                     <i class="icon-reorder"></i>
@@ -52,12 +52,15 @@
             </div>
             <div class="portlet-body">
                 <div class="row-fluid">
-                    <div id="commandbroad" class='m-wrap span12' style="height:300px;border:1px solid;color:#fff;background:#000;font-family: 'Lucida Console';padding:10px;">
+                    <div id="commandbroad" class='span12' style="border:1px solid;color:#fff;background:#000;font-family: 'Lucida Console';padding:10px;">
+                        Please enter command below...
+                        <br/>
+                        <br/>
                     </div>
                 </div>
                 {{Form::open(array('url'=>URL::to('admin/command/ajax_command'),'id'=>'command_form'))}}
                 {{Form::hidden('session',Str::random(10,'alpha'))}}
-                <div class="row-fluid" style="margin-top:-5px;background:#000;border:none;">
+                <div class="row-fluid" style="margin-top:-5px;border:none;">
                     <div class="span12" style="left">
                                 {{Form::text('command','',array('class'=>'span12','style'=>'color:#fff;border:none;background:#000;font-weight:bold;','placeholder'=>'Enter Command'))}}
                     </div>
