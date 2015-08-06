@@ -1,21 +1,21 @@
 <?php
-	class SoapService{
-		public static function RunCommand($cmd){
-            
-            $client = new SoapClient(NULL, Config::get('soapservice::soap.client'));
+    class SoapService
+    {
+        public static function RunCommand($cmd)
+        {
+            $client = new SoapClient(null, Config::get('soapservice::soap.client'));
 
-            try{
-                $result = $client->executeCommand(new SoapParam($cmd, "command"));
+            try {
+                $result = $client->executeCommand(new SoapParam($cmd, 'command'));
                 // $time=time();
                 // $log=array(
                 //     'command' =>$cmd,
                 //     'result'  =>$result,
-                //     'time'    =>$time           
+                //     'time'    =>$time
                 // );
                 // $this->insert_log($log);
                 return $result;
-            }
-            catch(Exception $e){
+            } catch (Exception $e) {
                 return $e->getMessage();
             }
         }
@@ -28,4 +28,4 @@
         //     $query= $this->vw_db->get();
         //     return $query->result_array();
         // }
-	}
+    }

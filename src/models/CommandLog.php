@@ -1,6 +1,7 @@
 <?php
-class Commandlog extends Eloquent
+
+class CommandLog extends Eloquent
 {
-	protected $guarded = array();
-	protected $table='commandlogs';
+    protected $guarded = [];
+    protected $table = 'commandlogs';
 }
